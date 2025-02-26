@@ -1,0 +1,31 @@
+{
+  "name": "ppi-atividade2",
+  "version": "1.0.0",
+  "description": "backend aplicação de pacote de viajens",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iza-mary/PPI-ATIVIDADE2.git"
+  },
+  "keywords": [
+    "API",
+    "backend",
+    "pacote",
+    "mvc",
+    "rest"
+  ],
+  "author": "Maria",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iza-mary/PPI-ATIVIDADE2/issues"
+  },
+  "homepage": "https://github.com/iza-mary/PPI-ATIVIDADE2#readme",
+  "dependencies": {
+    "mysql2": "^3.12.0"
+  }
+}
