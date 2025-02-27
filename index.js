@@ -26,19 +26,20 @@ var pacote6 = new PacoteViagem(6, "Dubai", "2025-07-06", "9 dias", "Curitiba", 1
 });*/
 
 // Excluir pacotes de viagem do banco de dados
-/*[pacote1, pacote2, pacote3, pacote4, pacote5, pacote6].forEach(pacote => {
+[pacote1, pacote2, pacote3, pacote4, pacote5, pacote6].forEach(pacote => {
     pacote.excluir().then(() => {
         console.log(`Pacote ${pacote.destino} excluído com sucesso!`);
     }).catch((erro) => {
         console.log(`Erro ao excluir o pacote ${pacote.destino}: ` + erro);
     });
-});/*/
-
-
-PacoteViagem.consultar().then((pacotes) => {
-    pacotes.forEach(pacote => {
-        console.log(pacote);
-    });
-}).catch((erro) => {
-    console.log("Erro ao consultar pacotes: " + erro);
 });
+
+/*PacoteViagem.consultar()
+    .then((listaPacotes) => {
+        for (const pacote of listaPacotes) {
+            console.log(pacote.toJSON());
+        }
+    })
+    .catch((erro) => {
+        console.log("Erro ao consultar pacotes: " + erro);
+    });*/

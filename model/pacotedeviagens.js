@@ -14,7 +14,6 @@ export default class PacoteViagem {
     #almoco;
     #jantar;
     #passeiosTuristicos;
-
     constructor(id, destino, dataSaida, duracao, localPartida, preco, lugaresDisponiveis, hotelIncluso, cafeManha, almoco, jantar, passeiosTuristicos) {
         this.#id = id;
         this.#destino = destino; 
@@ -27,8 +26,9 @@ export default class PacoteViagem {
         this.#cafeManha = cafeManha;
         this.#almoco = almoco;
         this.#jantar = jantar;
-        this.#passeiosTuristicos = passeiosTuristicos;
+        this.#passeiosTuristicos = passeiosTuristicos; 
     }
+    
 
     // Métodos Getters e Setters
     get id() {
