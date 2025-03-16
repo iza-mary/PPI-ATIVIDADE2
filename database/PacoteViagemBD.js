@@ -157,4 +157,36 @@ export default class PacoteViagemDB {
     
         return listaPacotes;
     }
+
+    async consultarPorID(id){
+        const conexao = await conectar();
+        const sql = `SELECT * FROM pacote_viagem WHERE id = ?`;
+        const [registros] = await conexao.execute(sql, [id]);
+        await conexao.release();
+    
+        let listaPacotes = [];
+        for (const registro of registros) {
+            let passeios = registro.passeiosTuristicos 
+                ? registro.passeiosTuristicos.split(",") 
+                : [];
+    
+            const pacote = new PacoteViagem(
+                registro.id,
+                registro.destino,
+                registro.data_saida,
+                registro.duracao,
+                registro.local_partida,
+                registro.preco,
+                registro.lugares_disponiveis,
+                registro.hotel_incluso,
+                registro.cafe_manha,
+                registro.almoco,
+                registro.jantar,
+                passeios
+            );
+    
+            listaPacotes.push(pacote);
+
+        }
+    }
 }

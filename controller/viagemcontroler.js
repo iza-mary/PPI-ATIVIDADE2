@@ -125,11 +125,35 @@ export default class viagemcontrole {
         }
     }
 
-    //GET - Consultar todos os pacotes de viagem
-    consultar(requisicao, resposta) {
-        if (requisicao.method === 'GET') {
-            const pacote = new PacoteViagem();
+    // GET - Consultar todos os pacotes ou um específico
+consultar(requisicao, resposta) {
+    if (requisicao.method === 'GET') {
+        const { id } = requisicao.params;
 
+        const pacote = new PacoteViagem();
+
+        if (id) {
+            // Se um ID for informado, busca um pacote específico
+            pacote.consultarPorId(id).then((pacoteEncontrado) => {
+                if (pacoteEncontrado) {
+                    resposta.status(200).json({
+                        status: true,
+                        pacote: pacoteEncontrado
+                    });
+                } else {
+                    resposta.status(404).json({
+                        status: false,
+                        mensagem: "Pacote não encontrado"
+                    });
+                }
+            }).catch((erro) => {
+                resposta.status(500).json({
+                    status: false,
+                    mensagem: "Erro ao consultar o pacote: " + erro
+                });
+            });
+        } else {
+            // Caso contrário, retorna todos os pacotes
             pacote.consultar().then((listaPacotes) => {
                 resposta.status(200).json({
                     status: true,
@@ -141,11 +165,13 @@ export default class viagemcontrole {
                     mensagem: "Erro ao consultar os pacotes: " + erro
                 });
             });
-        } else {
-            resposta.status(400).json({
-                status: false,
-                mensagem: "Requisição inválida"
-            });
         }
+    } else {
+        resposta.status(400).json({
+            status: false,
+            mensagem: "Requisição inválida"
+        });
     }
+}
+
 }

@@ -169,4 +169,8 @@ export default class PacoteViagem {
         const pacoteDB = new PacoteViagemDB();
         return await pacoteDB.consultar();  // Retorna todos os pacotes
     }
+    async consultarID(){
+        const pacoteDB = new PacoteViagemDB();
+        return await pacoteDB.consultarPorID(id); 
+    }
 }

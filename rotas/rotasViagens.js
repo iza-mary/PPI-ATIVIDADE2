@@ -1,9 +1,11 @@
 import { Router } from "express";
 import viagemcontrole from ".../controller/viagemcontrole.js";
+import { route } from "express/lib/application";
 
 const rotaViagens = Router(); //mini aplicação http
 const Victrl = new viagemcontrole();
 
+rotaViagens.get("/:id", Victrl.consultar);
 rotaViagens.get("/", Victrl.consultar);
 rotaViagens.post("/", Victrl.gravar);
 rotaViagens.put("/", Victrl.alterar);
