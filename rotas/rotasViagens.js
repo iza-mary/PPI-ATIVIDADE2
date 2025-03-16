@@ -1,7 +1,6 @@
 import { Router } from "express";
 import viagemcontrole from "../controller/Viagemcontrole.js";
 
-
 const rotaViagens = Router(); //mini aplicação http
 const Victrl = new viagemcontrole();
 
