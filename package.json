@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/iza-mary/PPI-ATIVIDADE2#readme",
   "dependencies": {
+    "express": "^4.21.2",
     "mysql2": "^3.12.0"
   }
 }
